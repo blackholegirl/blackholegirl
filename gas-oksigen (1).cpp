@@ -16,7 +16,7 @@ int main (){
     int counter = 0;
 
     // deklarasi molekul oksigen
-    flot Ptx[125], Ptx[125], Ptz[125];
+    float Ptx[125], Ptx[125], Ptz[125];
     float Fex[125], Fey[125], Fez[125];
     float O1x[125], O1y[125], O1z[125];
     float O2x[125], O2y[125], O2z[125];
