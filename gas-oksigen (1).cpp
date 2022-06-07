@@ -6,12 +6,16 @@
 
 using namespace std;
 
+float numb_mol;
+float O2 = 0,4E23; // bilangan avogadro
+float Mr_O2 = 32; // massa relatif dari O2
+
 int main (){
     // deklarasi variabel
     float pi = 3.14;
     int counter = 0;
 
-    // deklarasi molekul dioksida
+    // deklarasi molekul oksigen
     float Fex[125], Fey[125], Fez[125];
     float O1x[125], O1y[125], O1z[125];
     float O2x[125], O2y[125], O2z[125];
@@ -20,7 +24,7 @@ int main (){
          Fe
        /    \
       O      O
-      molekul dioksida itu bentuk rigid
+      molekul oksigen itu bentuk rigid
     */
 
     float rB_Fex = 0.0;
@@ -46,7 +50,7 @@ int main (){
 
     // hasil iterasi dimasukkan ke dalam file xyz
     ofstream file;
-    file.open("gas-dioksida.xyz");
+    file.open("gas-oksigen.xyz");
     int F = 125 * 3;
     file << F << "\f" << endl;
 
