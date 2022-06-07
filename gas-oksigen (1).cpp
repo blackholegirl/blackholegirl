@@ -27,6 +27,10 @@ int main (){
       molekul oksigen itu bentuk rigid
     */
 
+    float rB_Ptx = 0.0;
+    float rB_Pty = 0.0;
+    float rB_Ptz = 0.0;
+    
     float rB_Fex = 0.0;
     float rB_Fey = 0.0;
     float rB_Fez = 0.0;
@@ -56,6 +60,11 @@ int main (){
 
     // iterasi dalam output array
     for(int g = 0; g < 125; g++){
+        file << setw(3) << "Pt" << setw(3) << " " \
+             << fixed << setprecision(3) << Ptx[g] << setw(3) << " " \
+             << fixed << setprecision(3) << Pty[g] << setw(3) << " " \
+             << fixed << setprecision(3) << Ptz[g] << "\f";
+        
         file << setw(3) << "Fe" << setw(3) << " " \
              << fixed << setprecision(3) << Fex[g] << setw(3) << " " \
              << fixed << setprecision(3) << Fey[g] << setw(3) << " " \
