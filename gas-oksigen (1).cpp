@@ -82,6 +82,11 @@ int main (){
              << fixed << setprecision(3) << O2x[g] << setw(3) << " " \
              << fixed << setprecision(3) << O2y[g] << setw(3) << " " \
              << fixed << setprecision(3) << O2z[g] << "\f";
+        
+        file << setw(3) << "O" << setw(3) << " " \
+             << fixed << setprecision(3) << O3x[g] << setw(3) << " " \
+             << fixed << setprecision(3) << O3y[g] << setw(3) << " " \
+             << fixed << setprecision(3) << O3z[g] << "\f";
     }
 
     file.close();
