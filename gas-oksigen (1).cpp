@@ -22,7 +22,7 @@ int main (){
     float O2x[125], O2y[125], O2z[125];
     
      /* 
-         pt
+         Pt
          | 
          Fe
        /    \
