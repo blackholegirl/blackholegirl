@@ -51,9 +51,6 @@ int main (){
     float rB_O3z = sin((17.880/2.0)*pi/180.0) * 2.140;
     
                 counter += 2;
-            }
-        }
-    }
 
     // hasil iterasi dimasukkan ke dalam file xyz
     ofstream file;
@@ -83,10 +80,7 @@ int main (){
              << fixed << setprecision(3) << O2y[g] << setw(3) << " " \
              << fixed << setprecision(3) << O2z[g] << "\f";
         
-        file << setw(3) << "O" << setw(3) << " " \
-             << fixed << setprecision(3) << O3x[g] << setw(3) << " " \
-             << fixed << setprecision(3) << O3y[g] << setw(3) << " " \
-             << fixed << setprecision(3) << O3z[g] << "\f";
+       
     }
 
     file.close();
@@ -94,4 +88,3 @@ int main (){
     cout << "program telah selesai";
 
     return 0;
-}
