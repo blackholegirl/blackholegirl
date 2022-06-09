@@ -6,6 +6,10 @@
 
 using namespace std;
 
+float densitas;  /* densitas ini memiliki satuan g cm^-3
+               dan ini harus input dari user */
+// converter dadri nilai cm^-3 ke A^-3
+float cm3_to_A3 = 1,1E-41;
 float numb_mol;
 float O2 = 0,4E23; // bilangan avogadro
 float Mr_O2 = 32; // massa relatif dari O2
