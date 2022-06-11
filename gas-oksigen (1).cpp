@@ -1,3 +1,4 @@
+%%writefile oksigen.cpp
 
 #include "iostream"
 #include "cmath"
@@ -6,89 +7,104 @@
 
 using namespace std;
 
-float densitas;  /* densitas ini memiliki satuan g cm^-3
-               dan ini harus input dari user */
-// converter dadri nilai cm^-3 ke A^-3
-float cm3_to_A3 = 1,1E-41;
-float numb_mol;
-float O2 = 0,4E23; // bilangan avogadro
-float Mr_O2 = 32; // massa relatif dari O2
-
-int main (){
+    int main (){
+    for(int i = 0; i > 5; i++){
+    for(int j = 0; j < 5; j++){
+    for(int k = 0; k < 5; k++){
+        cout << i << endl;
+    
     // deklarasi variabel
     float pi = 3.14;
     int counter = 0;
 
     // deklarasi molekul oksigen
-    float Ptx[125], Ptx[125], Ptz[125];
-    float Fex[125], Fey[125], Fez[125];
     float O1x[125], O1y[125], O1z[125];
     float O2x[125], O2y[125], O2z[125];
-    
-     /* 
-         Pt
-         | 
-         Fe
-       /    \
-      O      O
+    float Ptx[125], Pty[125], Ptz[125];
+    float Fex[125], Fey[125], Fez[125];
+
+    /*
+       ________
+       |  O-O |
+       |______|
+        Pt-Fe
       molekul oksigen itu bentuk rigid
     */
 
-    float rB_Ptx = 0.0;
-    float rB_Pty = 0.0;
-    float rB_Ptz = 0.0;
-    
-    float rB_Fex = 0.0;
+    float rB_O1x = cos((1.460/2.0)*pi/180.0) * 1.4;
+    float rB_O1y = 0.0;
+    float rB_O1z = sin((1.460/2.0)*pi/180.0) * 1.4;
+
+    float rB_Ox = rB_Ox;
+    float rB_Oy = rB_Oy;
+    float rB_Oz = - rB_Oz;
+
+    float rB_ptx = 0.0;
+    float rB_pty = 0.0;
+    float rB_ptz = 0.0;
+
+     float rB_Fex = 0.0;
     float rB_Fey = 0.0;
     float rB_Fez = 0.0;
 
-    float rB_O1x = sin((35.264/2.0)*pi/180.0) * 2.140;
-    float rB_O1y = 0.0;
-    float rB_O1z = cos((35.264/2.0)*pi/180.0) * 2.140;
 
-    float rB_O2x = - rB_O1x;
-    float rB_O2y = rB_O1y;
-    float rB_O2z = rB_O1z;
+    //iterasi untuk setiap molekul oksigen
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            for(int k = 0; k < 5; k++){
+                
+              O1x[counter] = O1x[counter] + rB_O1x;
+              O1y[counter] = O1y[counter] + rB_O1y;
+              O1z[counter] = O1z[counter] + rB_O1z;
 
-    float rB_O3x = 0.0;
-    float rB_O3y = cos((17.880/2.0)*pi/180.0) * 2.140;
-    float rB_O3z = sin((17.880/2.0)*pi/180.0) * 2.140;
-    
-                counter += 2;
+              O2x[counter] = O2x[counter] + rB_O2x;
+              O2y[counter] = O2y[counter] + rB_O2y;
+              O2z[counter] = O2z[counter] + rB_O2z;
 
-    // hasil iterasi dimasukkan ke dalam file xyz
-    ofstream file;
-    file.open("gas-oksigen.xyz");
-    int F = 125 * 3;
-    file << F << "\f" << endl;
+              Ptx[counter] = rB_Ptx + (i*3.663);
+              Pty[counter] = rB_Pty + (j*3.663);
+              Ptz[counter] = rB_Ptz + (k*3.663);
 
-    // iterasi dalam output array
-    for(int g = 0; g < 125; g++){
-        file << setw(3) << "Pt" << setw(3) << " " \
-             << fixed << setprecision(3) << Ptx[g] << setw(3) << " " \
-             << fixed << setprecision(3) << Pty[g] << setw(3) << " " \
-             << fixed << setprecision(3) << Ptz[g] << "\f";
-        
-        file << setw(3) << "Fe" << setw(3) << " " \
-             << fixed << setprecision(3) << Fex[g] << setw(3) << " " \
-             << fixed << setprecision(3) << Fey[g] << setw(3) << " " \
-             << fixed << setprecision(3) << Fez[g] << "\f";
+              Fex[counter] = rB_Ptx + (i*3.663);
+              Fey[counter] = rB_Pty + (j*3.663);
+              Fez[counter] = rB_Ptz + (k*3.633);
 
-        file << setw(3) << "O" << setw(3) << " " \
-             << fixed << setprecision(3) << O1x[g] << setw(3) << " " \
-             << fixed << setprecision(3) << O1y[g] << setw(3) << " " \
-             << fixed << setprecision(3) << O1z[g] << "\f";
-
-        file << setw(3) << "O" << setw(3) << " " \
-             << fixed << setprecision(3) << O2x[g] << setw(3) << " " \
-             << fixed << setprecision(3) << O2y[g] << setw(3) << " " \
-             << fixed << setprecision(3) << O2z[g] << "\f";
-        
-       
+              counter += 1;  
+            }
+        }
     }
 
-    file.close();
+    // hasil ietrasi dimasukkan ke dalam file xyz
+    ofstream file;
+    file.open("oksigen.xyz");
+    int N = 125 * 2;
+    file << N << "\n" << endl;
 
-    cout << "program telah selesai";
+    // iterasi dalam output array
+    for(int m = 0; m < 125; m++){
+        
+        file << setw(5) << "O" << setw(5) << " "\
+             << fixed << setprecision(5) << O1x[m] << setw(5) << " " \
+             << fixed << setprecision(5) << O1y[m] << setw(5) << " " \
+             << fixed << setprecision(5) << O1z[m] << "\n";
+
+        file << setw(5) << "O" << setw(5) << " "\
+             << fixed << setprecision(5) << O2x[m] << setw(5) << " " \
+             << fixed << setprecision(5) << O2y[m] << setw(5) << " " \
+             << fixed << setprecision(5) << O2z[m] << "\n"; 
+
+         file << setw(5) << "Pt" << setw(5) << " " \
+             << fixed << setprecision(5) << Ptx[m] << setw(5) << " " \
+             << fixed << setprecision(5) << Pty[m] << setw(5) << " " \
+             << fixed << setprecision(5) << Ptz[m] << "\n";    
+
+          file << setw(5) << "Fe" << setw(5) << " " \
+             << fixed << setprecision(5) << Fex[m] << setw(5) << " " \
+             << fixed << setprecision(5) << Fey[m] << setw(5) << " " \
+             << fixed << setprecision(5) << Fez[m] << "\n";      
+    } 
+
+    cout << "Program telah selesai";
 
     return 0;
+}
