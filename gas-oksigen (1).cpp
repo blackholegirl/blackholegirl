@@ -1,10 +1,5 @@
 %%writefile oksigen.cpp
 
-#include "iostream"
-#include "cmath"
-#include "iomanip"
-#include "fstream"
-
 using namespace std;
 
     int main (){
@@ -43,7 +38,7 @@ using namespace std;
     float rB_pty = 0.0;
     float rB_ptz = 0.0;
 
-     float rB_Fex = 0.0;
+    float rB_Fex = 0.0;
     float rB_Fey = 0.0;
     float rB_Fez = 0.0;
 
