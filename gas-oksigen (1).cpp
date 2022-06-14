@@ -7,7 +7,8 @@ using namespace std;
     for(int j = 0; j < 5; j++){
     for(int k = 0; k < 5; k++){
         cout << i << endl;
-    
+    }
+        
     // deklarasi variabel
     float pi = 3.14;
     int counter = 0;
@@ -48,13 +49,13 @@ using namespace std;
         for(int j = 0; j < 5; j++){
             for(int k = 0; k < 5; k++){
                 
-              O1x[counter] = O1x[counter] + rB_O1x;
-              O1y[counter] = O1y[counter] + rB_O1y;
-              O1z[counter] = O1z[counter] + rB_O1z;
+              O1x[counter] = Ox[counter] + rB_O1x;
+              O1y[counter] = Oy[counter] + rB_O1y;
+              O1z[counter] = Oz[counter] + rB_O1z;
 
-              O2x[counter] = O2x[counter] + rB_O2x;
-              O2y[counter] = O2y[counter] + rB_O2y;
-              O2z[counter] = O2z[counter] + rB_O2z;
+              O2x[counter] = Ox[counter] + rB_O2x;
+              O2y[counter] = Oy[counter] + rB_O2y;
+              O2z[counter] = Oz[counter] + rB_O2z;
 
               Ptx[counter] = rB_Ptx + (i*3.663);
               Pty[counter] = rB_Pty + (j*3.663);
