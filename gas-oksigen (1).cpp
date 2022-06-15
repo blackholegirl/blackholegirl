@@ -20,9 +20,7 @@ using namespace std;
     float Fex[125], Fey[125], Fez[125];
 
     /*
-       ________
-       |  O-O |
-       |______|
+         O-O 
         Pt-Fe
       molekul oksigen itu bentuk rigid
     */
